@@ -19,6 +19,12 @@ Disclaimer: this package is still at an experimental level, and should only be u
 
 This package has only been tested on these platforms for now, so it might not work on other : 
 
+- neo4j 3.4.0
+
++ Linux Mint
+
+- neo4j 3.3.3
+
 + Mac OSX
 
 # rmd4j

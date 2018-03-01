@@ -9,6 +9,12 @@ only be used for testing, bug reports, and enhancement requests.
 This package has only been tested on these platforms for now, so it
 might not work on other :
 
+  - neo4j 3.4.0
+
+  - Linux Mint
+
+  - neo4j 3.3.3
+
   - Mac OSX
 
 # rmd4j
