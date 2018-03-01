@@ -31,8 +31,18 @@ You can start a new document by take using the RMarkdown templates which
 come with the configuration chunk.
 
 If you want to add a Neo4J engine to an existing Rmarkdown, add the
-`set_neo4j_engine` function inside the `setup` chunk in your
-RMarkdown.
+`set_neo4j_engine` function inside the `setup` chunk in your RMarkdown.
+
+If you follow the advices below about username and password, this should
+only be
+:
+
+``` r
+rmd4j::set_neo4J_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell")
+```
+
+But with more
+customisation:
 
 ``` r
 rmd4j::set_neo4J_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell", 
