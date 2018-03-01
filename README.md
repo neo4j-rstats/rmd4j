@@ -6,6 +6,11 @@
 Disclaimer: this package is still at an experimental level, and should
 only be used for testing, bug reports, and enhancement requests.
 
+This package has only been tested on these platforms for now, so it
+might not work on other :
+
+  - Mac OSX
+
 # rmd4j
 
 The goal of {rmd4j} is to provide a knitr engine for running Neo4J
@@ -38,14 +43,17 @@ only be
 :
 
 ``` r
-rmd4j::set_neo4J_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell")
+rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell")
 ```
+
+*Note: if you’re a windows user, you need to specify the file extension
+(should be .bat)*
 
 But with more
 customisation:
 
 ``` r
-rmd4j::set_neo4J_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell", 
+rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell", 
                         neo4j_user = "colin", 
                         neo4j_passwd = "pouetpouet", 
                         neo4j_adress = "bolt://localhost:7687")

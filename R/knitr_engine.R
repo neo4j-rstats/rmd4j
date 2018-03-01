@@ -20,7 +20,7 @@
 #' rmd4j::set_neo4J_engine("/Users/colin/neo/bin/cypher-shell", "Colin", "plop")
 #' }
 
-set_neo4J_engine <- function(cypher_bin,
+set_neo4j_engine <- function(cypher_bin,
                              neo4j_user = NULL,
                              neo4j_passwd = NULL,
                              neo4j_format = c("verbose","auto","plain"),
