@@ -17,7 +17,7 @@ You can install rmd4j from GitHub with:
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("ThinkR-open/rmd4j)
+remotes::install_github("ThinkR-open/rmd4j")
 ```
 
 ## Before using
