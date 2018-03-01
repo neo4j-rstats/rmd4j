@@ -1,0 +1,18 @@
+---
+title: "rmd4j"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# Note : be sure to have a Neo4J connection running 
+rmd4j::set_neo4J_engine(cypher_bin = # Insert the path to your cypher bin here
+                        # Uncomment these lines if needed
+                        #neo4j_user = "neo4j", 
+                        #neo4j_passwd = "neo4j", 
+                        #neo4j_adress = "bolt://localhost:7687"
+                        #neo4j_format = "plain"
+                        )
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+

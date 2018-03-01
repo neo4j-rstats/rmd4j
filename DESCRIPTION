@@ -1,0 +1,20 @@
+Package: rmd4j
+Title: Knitr Engine for Neo4j
+Version: 0.0.0.9000
+Authors@R: person('Colin', 'Fay', email = 'colin@thinkr.fr', role = c('cre', 'aut'))
+Description: A Knitr engine that allows to run Neo4j code inside an RMarkdown.
+License: MIT + file LICENSE
+LazyData: true
+URL: https://github.com/thinkr/rmd4j
+BugReports: https://github.com/thinkr/rmd4j/issues
+Encoding: UTF-8
+Suggests: 
+    testthat,
+    knitr,
+    rmarkdown
+Imports: 
+    attempt,
+    glue,
+    knitr
+VignetteBuilder: knitr
+RoxygenNote: 6.0.1

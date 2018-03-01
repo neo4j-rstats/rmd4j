@@ -1,0 +1,4 @@
+name: Rmd with Neo4J engine
+description: >
+  A Markdwon with the Neo4J knitr engine included
+create_dir: false
