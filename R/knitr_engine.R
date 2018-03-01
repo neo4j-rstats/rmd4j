@@ -36,14 +36,8 @@ set_neo4j_engine <- function(cypher_bin,
 
   knit_engines$set(neo4j = function(options) {
     if (options$eval) {
-      options$code <- paste(gsub("\n", " ", options$code), collapse = " ")
-      if (is.null(options$neo4j_passwd)){
-        out <- system( glue("echo '{options$code}' | {options$cypher_bin} -a {options$neo4j_adress} --format {options$neo4j_format}"),
-                       intern = TRUE)
-      } else {
-        out <- system( glue("echo '{options$code}' | {options$cypher_bin} -a {options$neo4j_adress} -u {options$neo4j_user} -p {options$neo4j_passwd} --format {options$neo4j_format}"),
-                       intern = TRUE)
-      }
+      options$code <- clean_input(options$code)
+      out <- encypher_for_knitr(options)
     }
     engine_output(options, options$code, out)
   })

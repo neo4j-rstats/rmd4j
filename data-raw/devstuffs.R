@@ -54,6 +54,8 @@ build_vignettes()
 # Create the R files
 file.create("R/knitr_engine.R")
 file.edit("R/knitr_engine.R")
+file.create("R/utils.R")
+file.edit("R/utils.R")
 
 # Create the RMarkdown template
 dir.create("inst/rmarkdown/templates/rmd4j/skeleton", recursive = TRUE)
