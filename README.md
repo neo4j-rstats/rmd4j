@@ -27,8 +27,13 @@ remotes::install_github("ThinkR-open/rmd4j")
 
 ## Before using
 
+You need to have downloaded the neo4j [community
+edition](https://neo4j.com/download/other-releases/), and have unpacked
+it.
+
 In order to use this knitr engine, you must have a running connection to
-a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start`.
+a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start`
+($NEO4J\_HOME being the folder you’ve unpacked neo4j into).
 
 ## Example
 
