@@ -93,6 +93,15 @@ Rmarkdown :
 
 ![](READMEfig/rmd4j.png)
 
+## Example
+
+### Using github\_document as output :
+
+From
+[Rmd](https://github.com/ColinFay/neo4Jplayground/blob/master/colintracks.Rmd)
+to
+[md](https://github.com/ColinFay/neo4Jplayground/blob/master/colintracks.md).
+
 ## Contact
 
 Questions and feedbacks [welcome](mailto:colin@thinkr.fr)\!
