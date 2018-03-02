@@ -14,7 +14,7 @@ encypher_for_knitr <- function(options){
     for (i in seq_along(options$code)){
       write(
         system(
-          glue("{options$cypher_bin} -a {options$neo4j_adress} --format {options$neo4j_format} '{options$code[[i]]}'"),
+          glue("{options$cypher_bin} -a {options$neo4j_adress} --format {options$neo4j_format} {shQuote(options$code[[i]])}"),
           intern = TRUE),
         file = t,
         append = TRUE
@@ -24,7 +24,7 @@ encypher_for_knitr <- function(options){
     for (i in seq_along(options$code)){
       write(
         system(
-          glue("{options$cypher_bin} -a {options$neo4j_adress} -u {options$neo4j_user} -p {options$neo4j_passwd} --format {options$neo4j_format} '{options$code[[i]]}'"),
+          glue("{options$cypher_bin} -a {options$neo4j_adress} -u {options$neo4j_user} -p {options$neo4j_passwd} --format {options$neo4j_format} {shQuote(options$code[[i]])}"),
           intern = TRUE),
         file = t,
         append = TRUE
