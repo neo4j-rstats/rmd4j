@@ -4,8 +4,8 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/neo4j/bin/cypher-shell", 
-                        neo4j_user = "neo4j", neo4j_passwd = "pouetpouet")
+rmd4j::set_neo4j_engine(cypher_bin = #add your cypher bin here
+                          )
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
@@ -83,7 +83,6 @@ MATCH (r:record) -[:WAS_RECORDED] -> (b:Band) where b.name = "Emperor" RETURN b,
 
 ```{neo4j}
 MATCH (r:Band) -[f:IS_FROM] -> (c:City {name:"Bergen"}) RETURN COUNT(*) AS Bergen_band;
-MATCH (r:record) WHERE r.release = 1993 RETURN COUNT(*) AS how_much;
-MATCH (r:record) -[:WAS_RECORDED] -> (b:Band) where b.name = "Burzum" RETURN COUNT(*) ;
+MATCH (r:record) -[:WAS_RECORDED] -> (b:Band) where b.name = "Emperor" RETURN COUNT(*) AS how_much;
 ```
 

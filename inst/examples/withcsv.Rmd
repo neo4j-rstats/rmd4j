@@ -4,26 +4,24 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-rmd4j::set_neo4j_engine(cypher_bin = , 
-                        neo4j_user = , 
-                        neo4j_passwd = )
+rmd4j::set_neo4j_engine(cypher_bin = #add your cypher bin here
+                          )
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-### Max duration
+### Neo4J
 
 ```{neo4j}
 LOAD CSV WITH HEADERS FROM "https://raw.githubusercontent.com/ThinkR-open/datasets/master/tracks.csv" AS csvLine 
-CREATE (t:artist { name: csvLine.artist, album: csvLine.album_name, track: csvLine.track, duration: toInteger(csvLine.duration), expl: toBoolean(csvLine.explicit), pop: csvLine.popularity});
+CREATE (t:artist { name: csvLine.artist, album: csvLine.album_name, track: csvLine.track, duration: toInteger(csvLine.duration), expl: toBoolean(csvLine.explicit), pop: toInteger(csvLine.popularity)});
 MATCH (a:artist) RETURN MAX(a.duration);
+MATCH (a:artist) RETURN MAX(a.pop);
 ```
 
 
-### ggplot2 call 
+### R
 
 ```{r}
-library(ggplot2)
-ggplot(iris) +
-  aes(Sepal.Length, Sepal.Width) +
-  geom_point()
+head(iris)
+plot(iris)
 ```
