@@ -15,6 +15,3 @@ encypher_options <- function(options){
 encypher_for_knitr <- function(options){
   system( encypher_options(options), intern = TRUE)
 }
-
-
-
