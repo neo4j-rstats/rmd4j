@@ -48,7 +48,15 @@ You need to have downloaded the neo4j [community edition](https://neo4j.com/down
 
 In order to use this knitr engine, you must have a running connection to a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start` ($NEO4J_HOME being the folder you've unpacked neo4j into).
 
-Note to Windows users: you might need to specify your path with `\\`, like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`. 
+Note to Windows users: you might need to specify your path with `\\`, like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`.
+
+## Test the package
+
+If you want to test the package before using, there are two .Rmd inside the inst/examples folder. 
+
+Add the path to you cypher bin, and test. 
+
+Any feedback is welcome!
 
 ## Example
 
@@ -119,11 +127,10 @@ You can mix any other content (including R, of course), inside your Rmarkdown :
 
 ## Example 
 
-### Inside the package
-
-You can find two examples in inst/examples.
+Inside the package, you can find two examples in inst/examples.
 
 Add the cypher bin path, and you're good to go. 
+
 
 ### Using github_document as output : 
 

@@ -46,6 +46,15 @@ a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start`
 Note to Windows users: you might need to specify your path with `\\`,
 like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`.
 
+## Test the package
+
+If you want to test the package before using, there are two .Rmd inside
+the inst/examples folder.
+
+Add the path to you cypher bin, and test.
+
+Any feedback is welcome\!
+
 ## Example
 
 You can start a new document by take using the RMarkdown templates which
@@ -129,9 +138,7 @@ Rmarkdown :
 
 ## Example
 
-### Inside the package
-
-You can find two examples in inst/examples.
+Inside the package, you can find two examples in inst/examples.
 
 Add the cypher bin path, and you’re good to go.
 
