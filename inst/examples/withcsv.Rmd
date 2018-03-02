@@ -4,9 +4,9 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/neo4j/bin/cypher-shell", 
-                        neo4j_user = "neo4j", 
-                        neo4j_passwd = "pouetpouet")
+rmd4j::set_neo4j_engine(cypher_bin = , 
+                        neo4j_user = , 
+                        neo4j_passwd = )
 knitr::opts_chunk$set(echo = TRUE)
 ```
 

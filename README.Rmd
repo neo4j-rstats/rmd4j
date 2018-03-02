@@ -115,6 +115,12 @@ You can mix any other content (including R, of course), inside your Rmarkdown :
 
 ## Example 
 
+### Inside the package
+
+You can find two examples in inst/examples.
+
+Add the cypher bin path, and you're good to go. 
+
 ### Using github_document as output : 
 
 From [Rmd](https://github.com/ColinFay/neo4Jplayground/blob/master/colintracks.Rmd) to [md](https://github.com/ColinFay/neo4Jplayground/blob/master/colintracks.md). 

@@ -38,6 +38,7 @@ set_neo4j_engine <- function(cypher_bin,
     if (options$eval) {
       options$code <- clean_input(options$code)
       out <- encypher_for_knitr(options)
+      #out <- options$code
     }
     engine_output(options, options$code, out)
   })
