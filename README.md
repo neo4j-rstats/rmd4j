@@ -6,16 +6,18 @@
 Disclaimer: this package is still at an experimental level, and should
 only be used for testing, bug reports, and enhancement requests.
 
-This package has only been tested on these platforms for now, so it
-might not work on other :
-
-  - neo4j 3.4.0
-
-  - Linux Mint
+This package has only been tested on these platforms for now, with the
+files found in `inst/examples`, so it might not work on others :
 
   - neo4j 3.3.3
+    
+      - Mac OSX
 
-  - Mac OSX
+  - neo4j 3.4.0-alpha08
+    
+      - Linux Mint
+    
+      - Windows 10
 
 # rmd4j
 
@@ -40,6 +42,9 @@ it.
 In order to use this knitr engine, you must have a running connection to
 a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start`
 ($NEO4J\_HOME being the folder you’ve unpacked neo4j into).
+
+Note to Windows users: you might need to specify your path with `\\`,
+like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`.
 
 ## Example
 
@@ -123,6 +128,12 @@ Rmarkdown :
 ![](READMEfig/rmd4j.png)
 
 ## Example
+
+### Inside the package
+
+You can find two examples in inst/examples.
+
+Add the cypher bin path, and you’re good to go.
 
 ### Using github\_document as output :
 
