@@ -44,6 +44,7 @@ use_test("")
 # Get the dependencies
 use_package("attempt")
 use_package("glue")
+use_package("rstudioapi")
 use_package("knitr")
 
 

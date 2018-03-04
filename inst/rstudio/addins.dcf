@@ -1,0 +1,4 @@
+Name: Neo4J Chunk
+Description: Add a neo4j chunk
+Binding: chunk4j
+Interactive: false
