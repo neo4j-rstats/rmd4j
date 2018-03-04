@@ -3,8 +3,8 @@
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-Disclaimer: this package is still at an experimental level, and should
-only be used for testing, bug reports, and enhancement requests.
+> Disclaimer: this package is still at an experimental level, and should
+> only be used for testing, bug reports, and enhancement requests.
 
 This package has only been tested on these platforms for now, with the
 files found in `inst/examples`, so it might not work on others :
@@ -48,8 +48,9 @@ like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`.
 
 ## Test the package
 
-If you want to test the package before using, there are two .Rmd inside
-the inst/examples folder.
+If you want to test the package before using, there are three .Rmd
+inside the inst/examples folder that can be use for playing with the
+package.
 
 Add the path to you cypher bin, and test.
 
@@ -102,6 +103,13 @@ password), don’t forget to `{r setup, include=FALSE}` this chunk.
 Neo4J chunks should start with a \`\`\``{neo4j}`.
 
 You can run several Neo4J calls in the same chunk.
+
+> Please not that for now, comments are not supported (but we’re working
+> on it) <https://github.com/ThinkR-open/rmd4j/issues/4>
+
+{rmd4j} comes with an addin to add a chunk :
+
+![](READMEfig/rmd4jaddin.png)
 
 ## About passwords and username
 
