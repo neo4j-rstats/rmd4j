@@ -1,0 +1,114 @@
+---
+title: "rmd4j"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+# Note : be sure to have a Neo4J connection running 
+rmd4j::set_neo4j_engine(cypher_bin = # Insert the path to your cypher bin here
+                        )
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+> From the neo4j manual
+
+## Create
+
+```{neo4j}
+CREATE (matrix:Movie { title:"The Matrix",released:1997 })
+CREATE (cloudAtlas:Movie { title:"Cloud Atlas",released:2012 })
+CREATE (forrestGump:Movie { title:"Forrest Gump",released:1994 })
+CREATE (keanu:Person { name:"Keanu Reeves", born:1964 })
+CREATE (robert:Person { name:"Robert Zemeckis", born:1951 })
+CREATE (tom:Person { name:"Tom Hanks", born:1956 })
+CREATE (tom)-[:ACTED_IN { roles: ["Forrest"]}]->(forrestGump)
+CREATE (tom)-[:ACTED_IN { roles: ['Zachry']}]->(cloudAtlas)
+CREATE (robert)-[:DIRECTED]->(forrestGump);
+```
+
+
+
+```{neo4j}
+MATCH (m:Movie { title: "The Matrix" })
+RETURN m;
+```
+
+
+```{neo4j}
+MATCH (p:Person)-[r:ACTED_IN]->(m:Movie)
+WHERE p.name =~ "K.+" OR m.released > 2000 OR "Neo" IN r.roles
+RETURN p,r,m;
+```
+
+
+```{neo4j}
+MATCH (p:Person)-[:ACTED_IN]->(m)
+WHERE NOT (p)-[:DIRECTED]->()
+RETURN p,m;
+```
+
+
+```{neo4j}
+MATCH (p:Person)
+RETURN p, p.name AS name, toUpper(p.name), coalesce(p.nickname,"n/a") AS nickname, { name: p.name,
+  label:head(labels(p))} AS person;
+```
+
+
+```{neo4j}
+MATCH (:Person)
+RETURN count(*) AS people
+```
+
+
+```{neo4j}
+MATCH (actor:Person)-[:ACTED_IN]->(movie:Movie)<-[:DIRECTED]-(director:Person)
+RETURN actor,director,count(*) AS collaborations
+```
+
+
+```{neo4j}
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+RETURN a,count(*) AS appearances
+ORDER BY appearances DESC LIMIT 10;
+```
+
+
+```{neo4j}
+MATCH (m:Movie)<-[:ACTED_IN]-(a:Person)
+RETURN m.title AS movie, collect(a.name) AS cast, count(*) AS actors;
+```
+
+
+```{neo4j}
+MATCH (actor:Person)-[r:ACTED_IN]->(movie:Movie)
+RETURN actor.name AS name, type(r) AS acted_in, movie.title AS title
+UNION
+MATCH (director:Person)-[r:DIRECTED]->(movie:Movie)
+RETURN director.name AS name, type(r) AS acted_in, movie.title AS title;
+```
+
+
+```{neo4j}
+MATCH (person:Person)-[:ACTED_IN]->(m:Movie)
+WITH person, count(*) AS appearances, collect(m.title) AS movies
+WHERE appearances > 1
+RETURN person.name, appearances, movies;
+```
+
+```{neo4j}
+CREATE INDEX ON :Actor(name);
+```
+
+
+```{neo4j}
+CREATE (actor:Actor { name:"Tom Hanks" }),(movie:Movie { title:'Sleepless IN Seattle' }),
+  (actor)-[:ACTED_IN]->(movie);
+```
+
+
+```{neo4j}
+MATCH (actor:Actor { name: "Tom Hanks" })
+RETURN actor;
+```
