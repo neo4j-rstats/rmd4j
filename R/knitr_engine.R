@@ -32,7 +32,8 @@ set_neo4j_engine <- function(cypher_bin,
                  neo4j_user = neo4j_user,
                  neo4j_passwd = neo4j_passwd,
                  neo4j_format = neo4j_format,
-                 neo4j_adress = neo4j_adress)
+                 neo4j_adress = neo4j_adress,
+                 comments = "")
 
   knit_engines$set(neo4j = function(options) {
     if (options$eval) {
