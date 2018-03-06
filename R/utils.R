@@ -6,6 +6,13 @@ clean_input <- function(vec){
 }
 
 encypher_for_knitr <- function(options){
+
+  # Locate cypher shell
+  files_in_home <- list.files(path = options$neo4j_home, recursive = TRUE)
+  cypher_shell <- grep("cypher-shell(\\.bat)*$", files_in_home, value = TRUE)
+  options$cypher_bin <- normalizePath(file.path(options$neo4j_home, cypher_shell))
+
+  # Create a tempfile to write the console results
   t <- tempfile()
 
   # Sequencially send the code if multiple calls are given (for windows compatibility)
@@ -31,7 +38,10 @@ encypher_for_knitr <- function(options){
       )
     }
   }
+
+  # Read the outputs
   out <- readLines(t)
+  # remove the tempfile
   on.exit(
     unlink(t)
   )

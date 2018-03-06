@@ -2,7 +2,7 @@
 #'
 #' Set up a neo4J knitr engine in an RMarkdown.
 #'
-#' @param cypher_bin the path to your cypher-shell bin
+#' @param neo4j_home the path to your neo4j home directory
 #' @param neo4j_user your Neo4J username
 #' @param neo4j_passwd your Neo4J username
 #' @param neo4j_format the format of the output (either auto, verbose, or plain, default is "verbose")
@@ -17,18 +17,18 @@
 #'
 #' @examples
 #' \dontrun{
-#' rmd4j::set_neo4J_engine("/Users/colin/neo/bin/cypher-shell", "Colin", "plop")
+#' rmd4j::set_neo4J_engine("/Users/colin/neo", "Colin", "plop")
 #' }
 
-set_neo4j_engine <- function(cypher_bin,
+set_neo4j_engine <- function(neo4j_home,
                              neo4j_user = NULL,
                              neo4j_passwd = NULL,
                              neo4j_format = c("verbose","auto","plain"),
                              neo4j_adress = "bolt://localhost:7687"){
   neo4j_format <- match.arg(neo4j_format)
-  stop_if_not(cypher_bin, file.exists, "Unable to get the cypher bin (file.exists returned FALSE)")
+  stop_if_not(neo4j_home, dir.exists, "Unable to locate Neo4J Home (dir.exists returned FALSE)")
 
-  opts_chunk$set(cypher_bin = cypher_bin,
+  opts_chunk$set(neo4j_home = neo4j_home,
                  neo4j_user = neo4j_user,
                  neo4j_passwd = neo4j_passwd,
                  neo4j_format = neo4j_format,
