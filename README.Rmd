@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 
 [![lifecycle](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 
-> Disclaimer: this package is still at an experimental level, and should only be used for testing, bug reports, and enhancement requests. 
+> Disclaimer: this package is still at an experimental level, and should only be used for testing, bug reports, and enhancement requests. As long as this package is in "Experimental" mode, some changes to the API are to be expected. Read the [NEWS.md](NEWS.md) to be informed of the last changes.
 
 This package has only been tested on these platforms for now, with the files found in `inst/examples`, so it might not work on others : 
 
