@@ -18,20 +18,20 @@ encypher_for_knitr <- function(options){
   # Sequencially send the code if multiple calls are given (for windows compatibility)
 
   if (is.null(options$neo4j_passwd)){
-    for (i in seq_along(options$code)){
+    for (i in seq_along(options$code_to_eval)){
       write(
         system(
-          glue("{options$cypher_bin} -a {options$neo4j_adress} --format {options$neo4j_format} {shQuote(options$code[[i]])}"),
+          glue("{options$cypher_bin} -a {options$neo4j_adress} --format {options$neo4j_format} {shQuote(options$code_to_eval[[i]])}"),
           intern = TRUE),
         file = t,
         append = TRUE
       )
     }
   } else {
-    for (i in seq_along(options$code)){
+    for (i in seq_along(options$code_to_eval)){
       write(
         system(
-          glue("{options$cypher_bin} -a {options$neo4j_adress} -u {options$neo4j_user} -p {options$neo4j_passwd} --format {options$neo4j_format} {shQuote(options$code[[i]])}"),
+          glue("{options$cypher_bin} -a {options$neo4j_adress} -u {options$neo4j_user} -p {options$neo4j_passwd} --format {options$neo4j_format} {shQuote(options$code_to_eval[[i]])}"),
           intern = TRUE),
         file = t,
         append = TRUE

@@ -37,7 +37,7 @@ set_neo4j_engine <- function(neo4j_home,
 
   knit_engines$set(neo4j = function(options) {
     if (options$eval) {
-      options$code <- clean_input(options$code)
+      options$code_to_eval <- clean_input(options$code)
       out <- encypher_for_knitr(options)
       #out <- options$code
     }
