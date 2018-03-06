@@ -39,7 +39,7 @@ set_neo4j_engine <- function(neo4j_home,
     if (options$eval) {
       options$code_to_eval <- clean_input(options$code)
       out <- encypher_for_knitr(options)
-      #out <- options$code
+      #out <- options$code_to_eval
     }
     engine_output(options, options$code, out)
   })

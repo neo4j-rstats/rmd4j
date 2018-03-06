@@ -1,4 +1,5 @@
 clean_input <- function(vec){
+  vec <- gsub("^\\/\\/.+$", "\n", vec, perl = TRUE)
   vec <- paste(gsub("\n", " ", vec), collapse = " ")
   vec <- gsub(";", ";%", vec)
   vec <- gsub("\'", "\"", vec)
