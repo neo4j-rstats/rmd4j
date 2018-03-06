@@ -5,7 +5,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 # Note : be sure to have a Neo4J connection running 
-rmd4j::set_neo4j_engine(cypher_bin = # Insert the path to your cypher bin here
+rmd4j::set_neo4j_engine(neo4j_home = # Insert the path to your neo4j home
                         # Uncomment these lines if needed
                         #neo4j_user = "neo4j", 
                         #neo4j_passwd = "neo4j", 

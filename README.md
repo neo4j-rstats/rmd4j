@@ -44,42 +44,36 @@ a Neo4J server, launched with `$NEO4J_HOME/bin/neo4j start`
 ($NEO4J\_HOME being the folder you’ve unpacked neo4j into).
 
 Note to Windows users: you might need to specify your path with `\\`,
-like `C:\\USers\\colin\\Documents\\neo4j\\bin\\cypher-shell.bat`.
+like `C:\\USers\\colin\\Documents\\neo4j`.
 
 ## Test the package
 
 If you want to test the package before using, there are three .Rmd
-inside the inst/examples folder that can be use for playing with the
-package.
+inside the inst/examples folder that can be use for playing around.
 
-Add the path to you cypher bin, and test.
+Add the path to you Neo4J home directory, and test.
 
 Any feedback is welcome\!
 
 ## Example
 
-You can start a new document by take using the RMarkdown templates which
-come with the configuration chunk.
+You can start a new document by using the RMarkdown template which comes
+with the package. This Rmd comes with the configuration chunk.
 
 If you want to add a Neo4J engine to an existing Rmarkdown, add the
 `set_neo4j_engine` function inside the `setup` chunk in your RMarkdown.
 
 If you follow the advices below about username and password, this should
-only be
-:
+only be something like :
 
 ``` r
-rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell")
+rmd4j::set_neo4j_engine(neo4j_home = "/Users/colin/soft/graphs/n4j")
 ```
 
-*Note: if you’re a windows user, you need to specify the file extension
-(should be .bat)*
-
-But with more
-customisation:
+But with more customisation:
 
 ``` r
-rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-shell", 
+rmd4j::set_neo4j_engine(neo4j_home = "/Users/colin/soft/graphs/n4j", 
                         neo4j_user = "colin", 
                         neo4j_passwd = "pouetpouet", 
                         neo4j_adress = "bolt://localhost:7687")
@@ -87,12 +81,12 @@ rmd4j::set_neo4j_engine(cypher_bin = "/Users/colin/soft/graphs/n4j/bin/cypher-sh
 
 You can set:
 
-  - `cypher_bin` the path to your cypher-shell bin
+  - `neo4j_home` the path to your Neo4J home directory
   - `neo4j_user` your Neo4J username
   - `neo4j_passwd` your Neo4J username
   - `neo4j_format` the format of the output (either auto, verbose, or
     plain, default is “plain”)
-  - `neo4j_adress` the url of the cluster, default is
+  - `neo4j_adress` the url of the server, default is
     “bolt://localhost:7687”
 
 As this chunk might contain some sensible information (like you
@@ -115,11 +109,12 @@ You can run several Neo4J calls in the same chunk.
 
 If you don’t specify any `neo4j_user` and `neo4j_passwd`,
 `set_neo4J_engine()` will not use the `--user` and `--password` args of
-the cypher-shell. In that case, you’ll need to have provided Neo4J your
-user name and password, or have disabled the password request (see
-below).
+the cypher-shell.
 
-We strongly recommand to provide your Neo4J password outside of the rmd,
+In that case, you’ll need to have provided Neo4J your user name and
+password, or have disabled the password request (see below).
+
+We strongly recommand to provide your Neo4J password outside of the Rmd,
 as it will prevent any unwanted share of these credentials.
 
 ### Disable Neo4J password request
@@ -145,10 +140,6 @@ Rmarkdown :
 ![](READMEfig/rmd4j.png)
 
 ## Example
-
-Inside the package, you can find two examples in inst/examples.
-
-Add the cypher bin path, and you’re good to go.
 
 ### Using github\_document as output :
 
